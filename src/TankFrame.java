@@ -27,7 +27,7 @@ public class TankFrame extends JFrame implements FrameMethod
 
         for(int i=0;i<Setting.ENEMY_NUMBER;i++)
         {
-            enemyTanks.add(new EnemyTank((i+1)*100,100,Direction.R,thismap));
+            enemyTanks.add(new EnemyTank((i+1)*200,150,Direction.R,thismap));
         }//创建一系列敌方坦克
 
     }//构造方法
