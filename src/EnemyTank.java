@@ -1,9 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.awt.event.KeyEvent;
 
-public class EnemyTank
+public class EnemyTank implements TankMethod
 {
     Map map;
     Image img;
@@ -43,7 +42,6 @@ public class EnemyTank
         g.drawImage(img, x, y,40,40, null);
     }//画敌人坦克
 
-
     public void enemyfire()
     {
         if(fire_internal>0)
@@ -71,7 +69,7 @@ public class EnemyTank
     }
     //子弹射出子弹
 
-    private boolean is_bullet_border(int x, int y)
+    public boolean is_bullet_border(int x, int y)
     {
         return x>0&&y>0&&x+8< Setting.frame_width &&y+8<Setting.frame_height;
     }

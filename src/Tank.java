@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-public class Tank
+public class Tank implements TankMethod
 {
     Map map;
     Image img;
@@ -34,11 +34,11 @@ public class Tank
         this.Dir=Dir;
         this.map=map;
         this.live=Setting.live;
-        this.bU=true;
-        this.bD=true;
-        this.bF=true;
-        this.bL=true;
-        this.bR=true;
+        this.bU=false;
+        this.bD=false;
+        this.bF=false;
+        this.bL=false;
+        this.bR=false;
 
         death=new ImageIcon("img/boom.jpg").getImage();
         img = new ImageIcon("img/player1.gif").getImage();
@@ -132,7 +132,7 @@ public class Tank
     }
     //射出子弹
 
-    private boolean is_bullet_border(int x, int y)
+    public boolean is_bullet_border(int x, int y)
     {
         return x>0&&y>0&&x+8< Setting.frame_width &&y+8<Setting.frame_height;
     }
@@ -191,7 +191,7 @@ public class Tank
         fire();
     }//坦克移动
 
-    private int[]  tank_map_collision(Tank tank, Map map)
+    public int[]  tank_map_collision(Tank tank, Map map)
     {
         int[] result={0,0,0,0};
         for (int i = 0; i < 16; i++)
